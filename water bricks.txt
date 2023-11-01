@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc = new Scanner(System.in);
+	    int len = sc.nextInt();
+	    int a[] = new int[len];
+	    int l[] = new int[len];
+	    int r[] = new int[len];
+	    int m[] = new int[len];
+	    int re[] = new int[len];
+	    int fin = 0;
+	    for(int i=0;i<len;i++)
+	    {
+	        a[i]=sc.nextInt();
+	    }
+	    int f=a[0];
+	    int last=a[len-1];
+	    for(int i=0;i<len;i++)
+	    {
+	        if(f<a[i])
+	        {
+	            l[i]=a[i];
+	            f=a[i];
+	        }
+	        else
+	        {
+	            l[i]=f;
+	        }
+	    }
+	    for(int i=len-1;i>=0;i--)
+	    {
+	        if(last<a[i])
+	        {
+	            r[i]=a[i];
+	            last=a[i];
+	        }
+	        else
+	        {
+	            r[i]=last;
+	        }
+	    }
+	    for(int i=0;i<len;i++)
+	    {
+	        if(l[i]<r[i])
+	        {
+	            m[i]=l[i];
+	        }
+	        else{
+	            m[i]=r[i];
+	        }
+	    }
+	    for(int i=0;i<len;i++)
+	    {
+	        re[i]=m[i]-a[i];
+	    }
+	    for(int i=0;i<len;i++)
+	    {
+	        fin +=re[i];
+	    }
+	    System.out.print(fin);
+	}
+}
+
+
+input:
+4
+4 0 3 5
+
+output:
+
+5
+
